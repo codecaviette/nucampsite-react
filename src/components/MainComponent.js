@@ -35,6 +35,15 @@ class Main extends Component {
             );
         }
 
+        const CampsiteWithId = ({match}) => {       // Since we'll need to access the Main comp's state with "this" keyword, we'll use arrow function. Passing the Route's match object.
+            return (
+                <CampsiteInfo 
+                    campsite={this.state.campsites.filter(campsite => campsite.id === +match.params.campsiteId)[0]}       // Using the "+" infront of a string converts it into a number; [0] takes the first item/object in new array resulting from filtered array.
+                    comments={this.state.comments.filter(comment => comment.campsiteId === +match.params.campsiteId)}
+                />
+            );
+        };
+
         return (
             <div>
                 <Header />
@@ -42,6 +51,7 @@ class Main extends Component {
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/directory' render={() =>                // With Route, whhen passing state as props to a comp, need to use the render syntax
                         <Directory campsites={this.state.campsites} />} />
+                    <Route path='/directory/:campsiteId' component={CampsiteWithId}/>       {/* The ":" tells router that what follows the second "/" will be a param, and takes whatever that is and puts it in this property, campsiteId. The Route comp itself stores an object called match in its state which has a prop called params; campsiteId gets stored as a property of this params object */}
                     <Route exact path='/contactus' component={Contact} />       {/* If not passing any props, no need for render syntax; just use component attribute */}
                     <Redirect to='/home' />                </Switch>
                 <Footer />

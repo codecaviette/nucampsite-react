@@ -1,13 +1,16 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-function RenderDirectoryItem({campsite, onClick}) {
+function RenderDirectoryItem({campsite}) {
     return (
         <Card >
-            <CardImg width="100%" src={campsite.image} alt={campsite.name} />
-            <CardImgOverlay>
-                <CardTitle>{campsite.name}</CardTitle>
-            </CardImgOverlay>
+            <Link to={`/directory/${campsite.id}`}>     {/* Create dynamic link/path using vanilla JS. Using template literal allows us to take whichever campsite.id we tap on to create the dynamic link  */}
+                <CardImg width="100%" src={campsite.image} alt={campsite.name} />
+                <CardImgOverlay>
+                    <CardTitle>{campsite.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
         </Card>
     );
 }
