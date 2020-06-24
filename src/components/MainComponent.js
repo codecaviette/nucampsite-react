@@ -9,6 +9,7 @@ import { PROMOTIONS } from '../shared/promotions';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
+import About from './AboutComponent';
 import Contact from './ContactComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -46,11 +47,14 @@ class Main extends Component {
 
         return (
             <div>
+                {/* List of Components to view (always Header & Footer plus a certain route) depending on path/route: */}
                 <Header />
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/directory' render={() =>                // With Route, whhen passing state as props to a comp, need to use the render syntax
                         <Directory campsites={this.state.campsites} />} />
+                    <Route exact path='/aboutus' render={() =>
+                        <About partners={this.state.partners} /> } />
                     <Route path='/directory/:campsiteId' component={CampsiteWithId}/>       {/* The ":" tells router that what follows the second "/" will be a param, and takes whatever that is and puts it in this property, campsiteId. The Route comp itself stores an object called match in its state which has a prop called params; campsiteId gets stored as a property of this params object */}
                     <Route exact path='/contactus' component={Contact} />       {/* If not passing any props, no need for render syntax; just use component attribute */}
                     <Redirect to='/home' />                </Switch>

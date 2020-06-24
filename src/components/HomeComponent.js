@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
 
 // This builds structure of each featured item card; called in Home functional component below
-function RenderCard({item}) {
+function RenderCard({item}) {           // Deconstruct a property named "item" from the props object - to do this, item must be in {}
     return (
         <Card>
             <CardImg src={item.image} alt={item.name}/>     {/* We're accessing the image and name properties of the argument passed through RenderCard fxn */}
