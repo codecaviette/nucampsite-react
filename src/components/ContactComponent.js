@@ -3,7 +3,7 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Control, LocalForm, Errors, actions } from 'react-redux-form';
+import { Control, Form, Errors, actions } from 'react-redux-form';
 
 
 const required = val => val && val.length;
@@ -117,7 +117,8 @@ class Contact extends React.Component {
                         <hr />
                     </div>
                     <div className="col-md-10">
-                            <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>                                   <Row className="form-group">
+                        <Form model="feedbackForm" onSubmit={values => this.handleSubmit(values)}>
+                            <Row className="form-group">
                                 <Label htmlFor="firstName" md={2}>First Name</Label>
                                 <Col md={10}>
                                 <Control.text model=".firstName" id="firstName" name="firstName"

@@ -2,13 +2,14 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle , Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';        // baseUrl is our server constant that allows us to pull data (campsites, comments, promotions) from our server rather than other files.
 
 
 function RenderDirectoryItem({campsite}) {
     return (
         <Card >
             <Link to={`/directory/${campsite.id}`}>     {/* Create dynamic link/path using vanilla JS. Using template literal allows us to take whichever campsite.id we tap on to create the dynamic link  */}
-                <CardImg width="100%" src={campsite.image} alt={campsite.name} />
+                <CardImg width="100%" src={baseUrl + campsite.image} alt={campsite.name} />
                 <CardImgOverlay>
                     <CardTitle>{campsite.name}</CardTitle>
                 </CardImgOverlay>

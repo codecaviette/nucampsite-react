@@ -6,7 +6,7 @@ import { Partners } from './partners';
 import { Promotions } from './promotions';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { InitialFeedback } from '/forms';
+import { InitialFeedback } from './forms';
 
 
 export const ConfigureStore = () => {
