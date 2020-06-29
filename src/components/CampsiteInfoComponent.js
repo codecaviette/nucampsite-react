@@ -41,7 +41,7 @@ function RenderComments({comments}){
         }
         return <div />
     }
-    
+
 class CommentForm extends Component {           // Use class component instead of functional comp so that you can have state
     
     constructor(props) {
