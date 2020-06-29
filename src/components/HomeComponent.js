@@ -1,25 +1,42 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
+import { Loading } from './LoadingComponent';
+
 
 // This builds structure of each featured item card; called in Home functional component below
-function RenderCard({item}) {           // Deconstruct a property named "item" from the props object - to do this, item must be in {}
+function RenderCard({item, isLoading, errMess}) {           // Deconstruct a property named "item" from the props object - to do this, item must be in {}
+    if (isLoading) {
+        return (
+             <Loading />
+        );
+    }
+    if (errMess) {
+        return (
+            <h4>{errMess}</h4>
+        );
+    }
     return (
         <Card>
-            <CardImg src={item.image} alt={item.name}/>     {/* We're accessing the image and name properties of the argument passed through RenderCard fxn */}
+            <CardImg src={item.image} alt={item.name} />        {/* We're accessing the image and name properties of the argument passed through RenderCard fxn */}
             <CardBody>
-                <CardTitle>{item.name}</CardTitle>
-                <CardText> {item.description} </CardText>
+            <CardTitle>{item.name}</CardTitle>
+            <CardText>{item.description}</CardText>
             </CardBody>
         </Card>
-    )
+    );
 }
+
 
 function Home(props) {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md m-1">                {/* When no number succeeds col, all divs in the row will take up same amount of space */}
-                    <RenderCard item={props.campsite} />    {/* Create item prop from passed prop, which is used in RenderCard fxn */}
+                    <RenderCard
+                        item={props.campsite}               // Create item prop from passed prop, which is used in RenderCard fxn
+                        isLoading={props.campsitesLoading}
+                        errMess={props.campsitesErrMess}
+                    />
                 </div>
                 <div className="col-md m-1">
                     <RenderCard item={props.promotion} />
