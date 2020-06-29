@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle} from 'reactstrap';
+import { FadeTransform } from 'react-animation-components';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';           // baseUrl is our server constant that allows us to pull data (campsites, comments, promotions) from our server rather than other files.
 
@@ -17,13 +18,19 @@ function RenderCard({item, isLoading, errMess}) {           // Deconstruct a pro
         );
     }
     return (
-        <Card>
-            <CardImg src={baseUrl + item.image} alt={item.name} />          {/* We're accessing the image and name properties of the argument passed through RenderCard fxn */}
-            <CardBody>
-            <CardTitle>{item.name}</CardTitle>
-            <CardText>{item.description}</CardText>
-            </CardBody>
-        </Card>
+        <FadeTransform
+            in
+            transformProps={{
+                exitTransform: 'scale(0.5) translateY(50%)'
+            }}>
+            <Card>
+                <CardImg src={baseUrl + item.image} alt={item.name} />
+                <CardBody>
+                    <CardTitle>{item.name}</CardTitle>
+                    <CardText>{item.description}</CardText>
+                </CardBody>
+            </Card>
+        </FadeTransform>
     );
 }
 
