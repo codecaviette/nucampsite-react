@@ -17,6 +17,8 @@ function RenderCard({item, isLoading, errMess}) {           // Deconstruct a pro
             <h4>{errMess}</h4>
         );
     }
+    console.log(item);
+
     return (
         <FadeTransform
             in
@@ -54,7 +56,10 @@ function Home(props) {
                     />
                 </div>
                 <div className="col-md m-1">
-                    <RenderCard item={props.partner} />
+                    <RenderCard item={props.partner} 
+                    isLoading={props.partnerLoading}
+                    errMess={props.partnerErrMess}
+                    />
                 </div>
             </div>
         </div>
