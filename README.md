@@ -25,5 +25,3 @@ About and Contact Us Pages - Submit form
 
 
 
-</br>
-See a full app demo here: https://github.com/codecaviette/nucampsite/blob/master/public/assets/images/NuCamp-vid.mov
