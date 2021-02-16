@@ -1,4 +1,4 @@
-Nucamp Coding Bootcamp project using React and Redux.
+This front-end app was created through the NuCamp Coding Bootcamp using JavaScript, CSS, HTML, React, Redux, and Bootstrap. Viewers can explore different campsites, their images, descriptions, and existing comments, as well as add a comment. Users can also fill out a form to submit feedback on the website! 
 
 Home page
 <div style="text-align:center">
