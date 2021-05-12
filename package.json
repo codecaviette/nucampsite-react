@@ -10,6 +10,7 @@
     "bootstrap-social": "5.1.1",
     "font-awesome": "4.7.0",
     "node-notifier": "^8.0.1",
+    "postcss": "^8.2.10",
     "prop-types": "15.6.0",
     "react": "^16.13.1",
     "react-animation-components": "3.0.0",
